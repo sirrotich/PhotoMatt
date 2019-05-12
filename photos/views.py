@@ -7,5 +7,7 @@ def welcome(request):
        images=Image.objects.all()
        return render(request, 'welcome.html',{'images':images})
 
+def gallery(request):
 
-
+       images=Image.objects.all()
+       return render(request, 'gallery.html',{"images": images })
