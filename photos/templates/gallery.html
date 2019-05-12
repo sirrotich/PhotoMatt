@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{block.super}}
+
+<div class="container-fluid">
+    <!-- displaying images -->
+    <div class="row">
+        {% for post in images %}
+
+        <div class="col-md-3">
+            <!-- modal button -->
+            <button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#myModal{{post.id}}">
+                <img src="{{post.image.url }}" alt="" width="300" height="300">
+                <p style="font-family: 'Permanent Marker', cursive;">{{ post.image_name }}</p>
+            </button>
+            <br>
+            <br>
+
+            <!-- modal -->
+        </div>
+
+
+        {% endfor %}
+    </div>
+</div>
+{% for post in images %}
+<!-- modal content -->
+<div class="modal" id="myModal{{post.id}}" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <img src="{{post.image.url }}" alt="" width="500" height="500">
+                <h4 class="modal-title">{{ post.image_description }}</h4>
+            </div>
+
+            <div class="modal-body">
+                {% for category in post.image_category.all %}
+                <p class="xx" style="font-family: 'Modak', cursive;" >Category: {{ category.name }}</p>
+                <p>Location: {{ post.image_location }}</p>
+                {% endfor %}
+            </div>
+
+
+            <div class="modal-footer">
+                <button type="button" value="{{post.image.url}}" onclick="copyLink(this.value)"
+                    class="btn btn-outline-secondary my-2 my-sm-0 link-btn">Copy Photo Link</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
