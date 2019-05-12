@@ -7,6 +7,10 @@ personal gallery is a web based application that allows users to view my photos
 ## users interface
 users get get various choices on what gallerys they want to view
 
+## page view
+![Screenshot from 2019-05-12 04-02-15](https://user-images.githubusercontent.com/47354971/57576557-d4611b80-746a-11e9-9ee4-2434214f0600.png)
+
+
 ## Technologies used
 
 ```
