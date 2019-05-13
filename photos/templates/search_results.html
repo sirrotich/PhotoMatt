@@ -13,15 +13,7 @@
 
   <div class="row">
 
-  {% if images %}
-    {% for image in images %}
-      <div class="col-md-3">
-          <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#myModal{{post.id}}">
-          <img src="{{image.image.url}}" alt="" width="150">
-          <h3>{{image.image_name}}</h3>
-      </div>
-    {% endfor %}
-  {% endif %}
+  
   </div>
 </div>
 {% endblock %}

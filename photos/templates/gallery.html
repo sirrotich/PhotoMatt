@@ -45,26 +45,13 @@
 
 
             <div class="modal-footer">
-                <button type="button" value="{{post.image.url}}" onclick="copyLink(this.value)"
-                    class="btn btn-outline-primary my-2 my-sm-0 link-btn">Copy Image Link</button>
+                <input type="text" id="imageLink" value="127.0.0.1:8000/media/gallery/{{post.image.url }}">
+                <button onclick="copyImage()">Copy Link</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
-
-<script>
-function copylink(value) {
-    console.log('hi yellow')
-    function handler(event){
-        event.clipboardData.setData('text/plain', value);
-        event.preventDefault();
-        document.removeEventListener('copy', handler, true);
-    }
-    document.addEventListener('copy', handler, true);
-    document.execCommand('copy');
-}
-</script>
 {% endfor %}
 
 {% endblock %}
