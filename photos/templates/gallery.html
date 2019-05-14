@@ -48,8 +48,8 @@
 
 
             <div class="modal-footer">
-                <input type="text" id="imageLink" value="127.0.0.1:8000/media/gallery/{{post.image.url }}">
-                <button onclick="copyImage()">Copy Link</button>
+                
+                <button name="button" value="https://sirgallery.herokuapp.com{{post.image.url}}"onclick="copyImage(this.value)">Copy Link</button>
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
             </div>
         </div>
