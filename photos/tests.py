@@ -83,3 +83,17 @@ class ImageTestClass(TestCase):
     def test_retrieve_all_images(self):
         images = Image.objects.all()
         self.assertTrue(len(images) ==1)
+
+class ModalTestClass(TestCase):
+    def setUp(self):
+        self.fashion= Category(name = 'Fashion')
+
+    # Testing  instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.fashion,Category))
+
+     # Testing Save Method
+    def test_save_method(self):
+        self.fashion.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories) > 0)

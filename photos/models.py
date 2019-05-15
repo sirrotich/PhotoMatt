@@ -14,10 +14,13 @@ class Location(models.Model):
         ordering = ['first_name']
 
 class Category(models.Model):
-    name = models.CharField(max_length =25)
+    category_det= models.CharField(max_length =25)
 
     def __str__(self):
-        return self.name
+        return self.category_det
+
+    def save_category(self):
+        self.save()
 
 class Image(models.Model):
     image = models.ImageField(upload_to ='gallery/')
@@ -44,6 +47,6 @@ class Image(models.Model):
         images = Image.objects.all()
         return images
     @classmethod
-    def search_by_image_category(cls,search_term):
-        images = cls.objects.filter(image__icontains=search_term)
-        return images
+    def search_by_category(cls,search_term):
+        search_result = cls.objects.filter(image_category__category_det__icontains=search_term)
+        return search_result
