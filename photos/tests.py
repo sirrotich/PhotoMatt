@@ -86,14 +86,14 @@ class ImageTestClass(TestCase):
 
 class ModalTestClass(TestCase):
     def setUp(self):
-        self.fashion= Category(name = 'Fashion')
+        self.image = Category(image = 'image_name')
 
-    # Testing  instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.fashion,Category))
+        self.assertTrue(isinstance(self.image,Image))
 
      # Testing Save Method
     def test_save_method(self):
-        self.fashion.save_category()
-        categories = Category.objects.all()
-        self.assertTrue(len(categories) > 0)
+        self.image.save_image()
+        images = Image.objects.all()
+        self.assertTrue(len(images) > 0)
+
